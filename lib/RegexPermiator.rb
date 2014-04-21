@@ -13,4 +13,8 @@ module RegexPermiator
     end
     matches.compact!
   end
+
+  def self.split_regex_tokens( regex )
+    regex.source.scan(/(\[\[:[a-z]+:\]\]|\\[a-z]|.)/).flatten
+  end
 end
