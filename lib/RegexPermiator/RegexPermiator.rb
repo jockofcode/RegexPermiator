@@ -26,7 +26,7 @@ module RegexPermiator
     end
     return token_feed_array.first if token_feed_array.length == 1
 
-    token_feed_array.first.product(*token_feed_array[1..-1]).map { | combination | combination.join }
+    token_feed_array.first.product(*token_feed_array[1..-1]).map(&:join)
   end
 
   def self.split_regex_tokens( regex )
