@@ -1,6 +1,6 @@
-require "RegexPermiator/version"
+require "RegexPermutator/version"
 
-module RegexPermiator
+module RegexPermutator
 
   CLASS_PATTERN = /\[\[:[a-z]+:\]\]/.freeze
   ESCAPED_PATTERN = /\\./.freeze
