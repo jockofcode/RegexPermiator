@@ -99,6 +99,12 @@ describe RegexPermiator do
       end
     end
 
+    describe "When given a character range between two character classes regex" do
+      subject { RegexPermiator.permutations(/[[:digit:]][YZ][[:space:]]/) }
+      it "returns all the character variations" do
+        subject.should include("0Y\t","0Z ","9Z\t","9Y ")
+      end
+    end
   end
 
 end
