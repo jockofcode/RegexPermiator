@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'RegexPermutator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "RegexPermutator"
+  spec.name          = "regex-permutator"
   spec.version       = RegexPermutator::VERSION
   spec.authors       = ["Branden Giacoletto"]
   spec.email         = ["JockOfCode@gmail.com"]
