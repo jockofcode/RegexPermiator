@@ -1,4 +1,4 @@
-require "regex_permutatotr/version"
+require "regex_permutator/version"
 
 module RegexPermutator
 
