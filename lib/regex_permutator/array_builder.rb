@@ -1,6 +1,6 @@
 module ArrayBuilder
 
-  def self.deep_pack( target_string , begin_array = /\(/, end_array = /\)/)
+  def self.deep_pack( target_string , begin_array = /\A\(\z/, end_array = /\A\)\z/)
     end_result = []
 
     begin

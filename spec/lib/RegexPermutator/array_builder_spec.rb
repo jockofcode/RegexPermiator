@@ -32,9 +32,9 @@ describe ::ArrayBuilder do
     end
 
     describe "When given a string with a character on both sides and inside of parenthisis" do
-      subject { ArrayBuilder.deep_pack( ["A","(","M","(","NO",")",")","Z"]) }
+      subject { ArrayBuilder.deep_pack( ["A","(","M","(","(NO",")",")","Z"]) }
       it "returns an array representing the deep parentisis segmented string" do
-        subject.should eq( ["A",["M",["NO"]],"Z"] )
+        subject.should eq( ["A",["M",["(NO"]],"Z"] )
       end
     end
   end
