@@ -22,7 +22,7 @@ module RegexPermutator
     end
 
   def self.permutations( source )
-    source = self.split_regex_tokens( source ) if source.class != Array
+    source = self.split_regex_tokens( source )
     self.deep_permutation( source )
   end
 
