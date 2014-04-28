@@ -72,7 +72,7 @@ describe RegexPermutator do
 
   context "#permutations" do
     describe "When given a number character class regex" do
-      subject { RegexPermutator.permutations(['[[:digit:]]']) }
+      subject { RegexPermutator.permutations([/[[:digit:]]/]) }
       it "returns all the number variations" do
         subject.should include("0","9")
       end
@@ -106,6 +106,15 @@ describe RegexPermutator do
       end
     end
 
+    pending "needs deep level permutations implemented" do
+      describe "When there are nested groups" do
+        subject { RegexPermutator.permutations(/(h[ie])/) }
+
+        it "returns all the nested variations" do
+          subject.should include("hi","hello")
+        end
+      end
+    end
   end
 
 end
