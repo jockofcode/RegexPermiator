@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe RegexPermutator do
 
-  context "#all_matching_chars" do
+  context "#character_array" do
     describe "When given a posix char class" do
-      subject { RegexPermutator.all_matching_chars( "[[:digit:]]" ) }
+      subject { RegexPermutator.character_array( "[[:digit:]]" ) }
 
       it "that is for digits, it should return numbers" do
         subject.should eq(('0'..'9').to_a)
@@ -69,7 +69,7 @@ describe RegexPermutator do
       end
     end
   end
-  
+
   context "#permutations" do
     describe "When given a number character class regex" do
       subject { RegexPermutator.permutations(/[[:digit:]]/) }
@@ -77,7 +77,7 @@ describe RegexPermutator do
         subject.should include("0","9")
       end
     end
-    
+
     describe "When given two number character class regex" do
       subject { RegexPermutator.permutations(/[[:digit:]][[:alpha:]]/) }
       it "returns all the number variations" do
@@ -91,7 +91,7 @@ describe RegexPermutator do
         subject.should include("0a\t","0z ","9a\t","9z ")
       end
     end
-    
+
     describe "When given a character between two character classes regex" do
       subject { RegexPermutator.permutations(/[[:digit:]]Y[[:space:]]/) }
       it "returns all the character variations" do
@@ -105,6 +105,8 @@ describe RegexPermutator do
         subject.should include("0Y\t","0Z ","9Z\t","9Y ")
       end
     end
+
   end
 
 end
+
