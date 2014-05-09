@@ -1,5 +1,5 @@
 require "regex_permutator/version"
-require "regex_permutator/array_builder.rb"
+require "regex_permutator/nested_array_utils.rb"
 
 module RegexPermutator
 
@@ -51,7 +51,7 @@ module RegexPermutator
   # split_regex_tokens takes a regex and outputs all the tokens
   # that make it up that regex with groups contained in arrays
   def self.split_regex_tokens( regex )
-    ArrayBuilder.deep_pack( regex.source.scan(TOKEN_PATTERN).flatten )
+    NestedArrayUtils.create_nested_array( regex.source.scan(TOKEN_PATTERN).flatten )
   end
   # Input /[1-2]\s /
   # Output ["[1-2]","\s"," "]
