@@ -13,11 +13,19 @@ describe RegexPermiator do
   end
 
   context "split_regex_tokens" do
-    describe "When there is one token" do
+    describe "When there is one character class" do
       subject { RegexPermiator.split_regex_tokens(/[[:digit:]]/) }
 
       it "returns just the one token" do
         subject.should eq(['[[:digit:]]'])
+      end
+    end
+
+    describe "When there is one escaped character" do
+      subject { RegexPermiator.split_regex_tokens(/\s/) }
+
+      it "returns just the one token" do
+        subject.should eq(['\s'])
       end
     end
 
@@ -48,10 +56,8 @@ describe RegexPermiator do
     describe "When there are mixed types of tokens and text and wildcards" do
       subject { RegexPermiator.split_regex_tokens(/[[:digit:]]*\sT/) }
 
-      pending do
-        it "returns all the tokens" do
-          subject.should eq( [ '[[:digit:]]*', '\s' , 'T' ] )
-        end
+      it "returns all the tokens" do
+        subject.should eq( [ '[[:digit:]]', '*', '\s', 'T' ] )
       end
     end
   end
