@@ -29,6 +29,14 @@ describe RegexPermiator do
       end
     end
 
+    describe "When there is a repeat pattern" do
+      subject { RegexPermiator.split_regex_tokens(/s{0,1}/) }
+
+      it "returns the whole pattern" do
+        subject.should eq(['s', '{0,1}'])
+      end
+    end
+
     describe "When there is more than one token" do
       subject { RegexPermiator.split_regex_tokens(/[[:digit:]][[:alnum:]]/) }
 
