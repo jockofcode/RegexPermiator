@@ -10,13 +10,22 @@ module RegexPermiator
   def self.all_matching_chars( regex_char_match )
     matches = (0..255).map do | char_number |
       character = char_number.chr
-      if character =~ regex_char_match
+      if character =~ Regexp.new(regex_char_match)
         character
       else
         nil
       end
     end
     matches.compact!
+  end
+
+  def self.permutations( tokens )
+    token_feed_array = self.split_regex_tokens( tokens ).map do | token |
+      self.all_matching_chars( token )
+    end
+    return token_feed_array.first if token_feed_array.length == 1
+
+    token_feed_array.first.product(*token_feed_array[1..-1]).map { | combination | combination.join }
   end
 
   def self.split_regex_tokens( regex )

@@ -1,4 +1,4 @@
-require_relative '../lib/RegexPermiator.rb'
+require_relative '../lib/RegexPermiator/RegexPermiator.rb'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
