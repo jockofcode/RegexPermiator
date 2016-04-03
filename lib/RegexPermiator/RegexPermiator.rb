@@ -4,8 +4,9 @@ module RegexPermiator
 
   CLASS_PATTERN = /\[\[:[a-z]+:\]\]/.freeze
   ESCAPED_PATTERN = /\\./.freeze
-  REPEAT_PATTERN = /\?|\*|\{\d*,\d*\}/
-  TOKEN_PATTERN = /(#{CLASS_PATTERN}|#{ESCAPED_PATTERN}|#{REPEAT_PATTERN}|.)/.freeze
+  REPEAT_PATTERN = /\?|\*|\{\d*,\d*\}/.freeze
+  RANGE_PATTERN = /\[[^\]]+\]/.freeze
+  TOKEN_PATTERN = /(#{CLASS_PATTERN}|#{RANGE_PATTERN}|#{ESCAPED_PATTERN}|#{REPEAT_PATTERN}|.)/.freeze
 
   def self.all_matching_chars( regex_char_match )
     matches = (0..255).map do | char_number |
