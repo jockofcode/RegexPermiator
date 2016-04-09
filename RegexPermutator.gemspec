@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'RegexPermiator/version'
+require 'RegexPermutator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "RegexPermiator"
-  spec.version       = RegexPermiator::VERSION
+  spec.name          = "RegexPermutator"
+  spec.version       = RegexPermutator::VERSION
   spec.authors       = ["Branden Giacoletto"]
   spec.email         = ["JockOfCode@gmail.com"]
-  spec.summary       = %q{Renerates all permiations that match a simple regular expression}
+  spec.summary       = %q{Renerates all permutations that match a simple regular expression}
   spec.description   = %q{Matching hashes with regex keys can take a long time, especially when there are a large quantitiy of regex keys being tested against. Creating all the possible matches for the hash key and then matching against those could potentially be faster, but does use more memory.}
   spec.homepage      = ""
   spec.license       = "MIT"
