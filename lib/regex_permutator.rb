@@ -21,21 +21,25 @@ module RegexPermutator
       matches.compact!
     end
 
-  def self.permutations( tokens )
-    token_feed_array = self.split_regex_tokens( tokens ).map do | token |
+  def self.permutations( source)
+    source = self.split_regex_tokens if source.class != Array
+    self.deep_permutation( source )
+  end
+
+  def self.deep_permutation( tokens )
+  # tokens =  self.split_regex_tokens( regex )
+
+    token_feed_array = tokens.map do | token |
       self.character_array( token )
     end
+
     return token_feed_array.first if token_feed_array.length == 1
 
     token_feed_array.first.product(*token_feed_array[1..-1]).map(&:join)
   end
 
   def self.split_regex_tokens( regex )
-    regex.source.scan(TOKEN_PATTERN).flatten
-  end
-
-  def self.organize_groups( tokens )
-
+    ArrayBuilder.deep_pack( regex.source.scan(TOKEN_PATTERN).flatten )
   end
 
 end
