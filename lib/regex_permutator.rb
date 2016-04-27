@@ -21,13 +21,12 @@ module RegexPermutator
       matches.compact!
     end
 
-  def self.permutations( source)
-    source = self.split_regex_tokens if source.class != Array
+  def self.permutations( source )
+    source = self.split_regex_tokens( source ) if source.class != Array
     self.deep_permutation( source )
   end
 
   def self.deep_permutation( tokens )
-  # tokens =  self.split_regex_tokens( regex )
 
     token_feed_array = tokens.map do | token |
       self.character_array( token )
